@@ -1,0 +1,18 @@
+{% extends 'main.html' %} 
+
+{% block content %}
+
+<br>{{project.id}}
+
+<br>{{project.title}}
+
+<br>{{project.description}}
+
+<hr>
+
+{% for tag in tags %}
+{{tag.name}},
+
+{% endfor %}
+
+{% endblock %}
