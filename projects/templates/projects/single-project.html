@@ -1,18 +1,14 @@
-{% extends 'main.html' %} 
+{% extends 'main.html' %} {% block content %}
 
-{% block content %}
+<br />{{project.id}}
 
-<br>{{project.id}}
+<br />{{project.title}}
 
-<br>{{project.title}}
+<br />{{project.description}}
 
-<br>{{project.description}}
+<hr />
 
-<hr>
+<a href="{% url 'update-project' project.id %}">Update Project</a>
+<a href="{% url 'delete-project' project.id %}">Delete Project</a>
 
-{% for tag in tags %}
-{{tag.name}},
-
-{% endfor %}
-
-{% endblock %}
+{% for tag in tags %} {{tag.name}}, {% endfor %} {% endblock %}
