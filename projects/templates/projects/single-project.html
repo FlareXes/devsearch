@@ -1,14 +1,17 @@
-{% extends 'main.html' %} {% block content %}
+{% extends 'main.html' %}
 
-<br />{{project.id}}
+{% block content %}
+  <img style="max-width: 300px;" src="{{ project.featured_image.url }}" />
 
-<br />{{project.title}}
+  <br />{{ project.id }}
+  <br />{{ project.title }}
+  <br />{{ project.description }}
+  <hr />
 
-<br />{{project.description}}
+  <a href="{% url 'update-project' project.id %}">Update Project</a>
+  <a href="{% url 'delete-project' project.id %}">Delete Project</a>
 
-<hr />
-
-<a href="{% url 'update-project' project.id %}">Update Project</a>
-<a href="{% url 'delete-project' project.id %}">Delete Project</a>
-
-{% for tag in tags %} {{tag.name}}, {% endfor %} {% endblock %}
+  {% for tag in tags %}
+    {{ tag.name }},
+  {% endfor %}
+{% endblock %}

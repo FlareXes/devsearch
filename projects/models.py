@@ -4,6 +4,7 @@ from django.db import models
 
 # Create your models here.
 class Project(models.Model):
+    featured_image = models.ImageField(null=True, blank=True, default="default.jpg")
     title = models.CharField(max_length=200)
     description = models.TextField(
         null=True, blank=True
